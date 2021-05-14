@@ -26,7 +26,7 @@ export default function InventoryActions(props) {
                         const { name , quantity} = entry;
 
                         return(
-                            <option value={name} key={name}>{name}</option>
+                            <option value={name} key={i}>{name}</option>
                         )
                     })
                 }

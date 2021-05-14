@@ -1,14 +1,28 @@
 import { useState, useEffect } from 'react';
 import InventoryActions from '../components/InventoryActions';
 import InventoryList from '../components/InventoryList';
-import { Row } from 'react-bootstrap';
 import { getAllProducts, getMyInventory, saveInventory } from '../logic/ApiCalls';
 import { useSelector, useDispatch } from 'react-redux';
 import { insertAllProducts, insertInventory } from '../redux/actions/actions';
 import { Link } from 'react-router-dom';
 
 export default function InventoryContainer() {
-    const products = useSelector(state => state.reducer.products);
+    const products = useSelector(state => state.products);
+    const inventory = useSelector(state => state.inventory);
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        async function getProductsAndInventory() {
+            const allProducts = await getAllProducts();
+            const myInventory = await getMyInventory();
+
+            dispatch(insertAllProducts(allProducts));
+            dispatch(insertInventory(myInventory))
+        }
+        getProductsAndInventory();
+    },[])
+
+   /* const products = useSelector(state => state.reducer.products);
     const inventory = useSelector(state => state.reducer.inventory);
     const dispatch = useDispatch();
 
@@ -26,7 +40,7 @@ export default function InventoryContainer() {
         
         getProductsAndInventory();
 
-    },[]);
+    },[]);*/
 
     return(
 

@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 
 export default function InventoryList() {
     const myInventory = [{name: "milk", quantity: 1}, {name: "meat", quantity: 3}]
-    const inventory = useSelector(state => state.reducer.inventory);
+    const inventory = useSelector(state => state.inventory);
     console.log(12)
 
     return(

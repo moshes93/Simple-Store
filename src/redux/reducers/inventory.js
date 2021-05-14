@@ -1,16 +1,11 @@
 const inventoryReducer = (state = [], action) => {
     switch(action.type) {
-        case 'INSERT':
-            return state;
-        case 'INSERT_ALL':
-            state = action.inventory;
-            console.log(action)
-            console.log(action.inventory)
-            return action.inventory;
-        case 'REMOVE':
-            return state;
-        case 'GET_ALL':
-            return state;
+        case 'INSERT_PRODUCT_TO_INVERNTORY':
+            return [...state, action.payload];
+        case 'INSERT_INVENTORY':
+            return [...action.payload];
+        case 'REMOVE_PRODUCT_FROM_INVENTORY':
+            return [...state.slice(0, action.payload), ...state.slice(action.payload + 1)];
         default:
             return state;
     }
