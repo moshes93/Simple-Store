@@ -11,3 +11,32 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+#inventory-container {
+  /*justify-content: center;*/  
+  margin-top: 35px;
+  margin-left: 35px;
+}
+
+#product-to-inventory-wrapper {
+  display: flex;
+  /*justify-content: center;*/
+}
+
+#product-to-inventory-wrapper input, #product-to-inventory-wrapper button, #product-to-inventory-wrapper select {
+  margin-right: 15px;
+}
+
+#inventory-table {
+  margin-top: 35px;
+  width: 35%;
+}
+
+#inventory-table th {
+  width: 150px;
+}
+
+#inventory-table, #inventory-table th, #inventory-table td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
