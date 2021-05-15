@@ -5,13 +5,19 @@ import { getAllProducts, getMyInventory, saveInventory } from '../logic/ApiCalls
 import { useSelector, useDispatch } from 'react-redux';
 import { insertAllProducts, insertInventory } from '../redux/actions/actions';
 import { Link } from 'react-router-dom';
+import Button from '@material-ui/core/Button';
+import { Container } from '@material-ui/core';
+import useStyles from '../styles';
+
 
 export default function InventoryContainer() {
     const products = useSelector(state => state.products);
     const inventory = useSelector(state => state.inventory);
     const dispatch = useDispatch();
+    const classes = useStyles();
 
     useEffect(() => {
+        console.log("here")
         async function getProductsAndInventory() {
             const allProducts = await getAllProducts();
             const myInventory = await getMyInventory();
@@ -43,15 +49,22 @@ export default function InventoryContainer() {
     },[]);*/
 
     return(
-
-        <div id="inventory-container">
+        <Container maxWidth="md" className={classes.inventoryContainer}>
             <InventoryActions allProducts={products}/>
-            <Link to='/product'>
-                {/* <p style={{textDecoration: 'underline'}}>New Product</p> */}
+            {/* <Link to='/product'>
                 New Product
-            </Link>
+            </Link> */}
             <InventoryList />
-            <button type="button" onClick={() => saveInventory(inventory)}>save</button>
-        </div>
+            <Button variant="contained" className={classes.saveButton} onClick={() => saveInventory(inventory)} color="primary">Save</Button>
+        </Container>
+        
+        // <div id="inventory-container">
+        //     <InventoryActions allProducts={products}/>
+        //     <Link to='/product'>
+        //         New Product
+        //     </Link>
+        //     <InventoryList />
+        //     <Button variant="contained" onClick={() => saveInventory(inventory)} color="primary">Save</Button>
+        // </div>
     )
 }

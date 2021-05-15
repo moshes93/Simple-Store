@@ -12,15 +12,13 @@ code {
     monospace;
 }
 
-#inventory-container {
-  /*justify-content: center;*/  
+/*#inventory-container { 
   margin-top: 35px;
   margin-left: 35px;
-}
+}*/
 
 #product-to-inventory-wrapper {
   display: flex;
-  /*justify-content: center;*/
 }
 
 #product-to-inventory-wrapper input, #product-to-inventory-wrapper button, #product-to-inventory-wrapper select {
@@ -29,12 +27,12 @@ code {
 
 #inventory-table {
   margin-top: 35px;
-  width: 35%;
+  width: 100%;
 }
 
-#inventory-table th {
+/*#inventory-table th {
   width: 150px;
-}
+}*/
 
 #inventory-table, #inventory-table th, #inventory-table td {
   border: 1px solid black;
